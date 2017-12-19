@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lotus Park</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />	
+	<link href="css/font-awesome.min.css" rel="stylesheet"/>
+	<link rel="shortcut icon" type="image/png" href="img/icons/favicon.png"/>
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+</head>
+<body>
+<!--- Wrapper Start -->
+		<div id="wrapper">
+<!--- Banner Wrapper Start -->
+		<div id="banner-wrapper">
+<!--- Header Start -->
+	<header>
+		<div id="header-inner">
+		<a href="index.html" id="logo" title=""></a>
+		<nav>
+			<a href="#" id="menu-icon"></a>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="skills.html">Skills</a></li>
+				<li><a href="portfolio.html">Portfolio</a></li>
+				<li><a href="team.html" >Our Team</a></li>
+				<li><a href="contact.html" class="current">Contact</a></li>
+			</ul>
+		</nav>
+		</div>
+	</header> 
+<!--- Header End -->
+<!--- Breadcrumbs & Title Start-->
+	<section class="breadcrumbs">
+		<h4>Contact Us</h4>
+		<div class="icon">
+			<i class="fa fa-envelope"></i>
+		</div>
+	</section>
+	<div id="title">
+		<h2 class="dark">Get In Touch</h2>
+	</div>
+<!--- Breadcrumbs & Title End -->
+		</div>
+<!--- Banner Wrapper End -->
+<!--- Left Column & Sidebar Start -->
+	<section class="left-col">
+		<p class="dark" style="text-indent: 6%;">We are open to all projects, and collaboration with you. Send us a emails concering timing, pricing and equipments.</p>
+	</section>
+	
+<!--- Left Column & Sidebar End -->
+	<div class="clearfix"></div>
+<!-- Start Contact Form -->
+	<section class="two-third" class="contact">
+	<div id="contact-area">
+	<div id="contact" class="section">
+		<!-- <div class="container content">
+	        <?php if(isset($emailSent) && $emailSent == true) { ?>
+                <p class="info">Your email was sent. Huzzah!</p>
+            <?php } else { ?> -->		
+				</div>	
+				<div id="contact-form">
+					<?php if(isset($hasError) || isset($captchaError) ) { ?>
+                        <p class="alert">Error submitting the form</p>
+                    <?php } ?>
+				
+					<div class="jumbotron jumbotron-sm">
+    <!-- <div class="container"> -->
+        <!-- <div class="row">
+            <div class="col-sm-12 col-lg-12">
+                <h1 class="h1">
+                    Contact us <small>Feel free to contact us</small></h1>
+            </div>
+        </div> -->
+    <!-- </div> -->
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="well well-sm">
+                <form>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">
+                                Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">
+                                Email Address</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                                </span>
+                                <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">
+                                Subject</label>
+                            <select id="subject" name="subject" class="form-control" required="required">
+                                <option value="na" selected="">Choose One:</option>
+                                <option value="Photograpy">Photograpy</option>
+                                <option value="videography">videography</option>
+                                <option value="Video Editor">Video Editor</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">
+                                Message</label>
+                            <textarea name="message" id="message" class="form-control" rows="9" cols="25" required="required"
+                                placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
+                            Send Message</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <form>
+            
+            
+          
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+		</div>
+    </div>
+<script type="text/javascript">
+	<!--//--><![CDATA[//><!--
+	$(document).ready(function() {
+		$( "#date" ).datepicker({
+			autoSize: false
+		});
+		$('form#contact-us').submit(function() {
+			$('form#contact-us .error').remove();
+			var hasError = false;
+			$('.requiredField').each(function() {
+				if($.trim($(this).val()) == '') {
+					var labelText = $(this).prev('label').text();
+					$(this).parent().append('<span class="error">Forgot your '+labelText+'!</span>');
+					$(this).addClass('inputError');
+					hasError = true;
+				} else if($(this).hasClass('email')) {
+					var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+					if(!emailReg.test($.trim($(this).val()))) {
+						var labelText = $(this).prev('label').text();
+						$(this).parent().append('<span class="error">Sorry! Invalid '+labelText+'!</span>');
+						$(this).addClass('inputError');
+						hasError = true;
+					}
+				}
+			});
+			$('.phone').each(function(){
+				var phoneReg = /^((\+[1-9]{1,4}[ \-]*)|(\([0-9]{2,3}\)[ \-]*)|([0-9]{2,4})[ \-]*)*?[0-9]{3,4}?[ \-]*[0-9]{3,4}?$/;
+				if($.trim($(this).val()) != '') {
+					if(!phoneReg.test($.trim($(this).val()))) {
+						var labelText = $(this).prev('label').text();
+						$(this).parent().append('<span class="error">Sorry! Invalid '+labelText+'!</span>');
+						$(this).addClass('inputError');
+						hasError = true;
+					}
+				}
+				
+			});
+
+			if(!hasError) {
+				var formInput = $(this).serialize();
+				$.post($(this).attr('action'),formInput, function(data){
+					$('form#contact-us').slideUp("fast", function() {				   
+						$(this).before('<p class="tick"><h3>Thanks! Your email has been delivered!</h3></p>');
+					});
+				});
+			}
+			
+			return false;	
+		});
+	});
+	//-->!]]>
+</script>
+			</div>
+		</section>
+<!-- End Contact Form -->
+	</div> 
+<!--- End Inner Wrapper -->
+</div>
+<!--- Wrapper End -->
+	<div class="clearfix"></div>
+<!--- Start Footer -->
+	<footer>
+<!--- Banner Wrapper Start -->
+	<div id="banner-wrapper">
+		<div class="icon-text">
+			<div class="icon-text-icon">
+				<ul class="footer-nav">
+					<li><a href="index.html" title="">Home</a></li>
+					<li><a href="portfolio.html" title="">Portfolio</a></li>
+					<li><a href="team.html" title="">Our Team</a></li>
+					<li><a href="contact.php" title="">Contact</a></li>
+				</ul>
+			</div>
+			<div class="icon-text-text">
+        <ul class="social">
+          <li><a href="mailto:email@website.com" title=""><i class="fa fa-envelope-o" id="email"></i></a></li>
+          <li><a href="https://www.instagram.com/lotusparkfilms/"><i class="fa fa-instagram" id="instagram"></i></a></li>
+          <li><a href="https://vimeo.com/user56347779"><i class="fa fa-vimeo" id="vimeo"></i></a></li>
+          <li><a href="https://twitter.com/LotusParkFilms"><i class="fa fa-twitter" id="twitter"></i></a></li>
+          <li><a href="https://www.youtube.com/channel/UCm2GvwMzmNqA3qZHrJqmOCQ"><i class="fa fa-youtube" id="youtube"></i></a></li>
+        </ul>
+      </div>
+		</div>
+	</div>
+<!--- Banner Wrapper End -->
+	</footer>
+	<footer class="second">
+		<p>&copy; Lotus Park 2016</p>
+	</footer>
+<!--- End Footer -->
+</body>
+</html>
+<!--- End Footer -->
+<!--- Top Scroll Start -->
+	<a href="#0" class="cd-top">Top</a>
+		<script src="js/top.js"></script> <!-- Gem jQuery -->
+		<script src="js/modernizr.js"></script>
+<!--- Top Scroll End --> 
+</body>
+</html>
